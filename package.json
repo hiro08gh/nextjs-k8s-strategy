@@ -1,0 +1,29 @@
+{
+  "name": "nextjs-k8s-strategy",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start:prod": "cross-env NODE_ENV=production node dist/index.js",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "next": "latest",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.1",
+    "@types/express": "^4.17.1",
+    "@types/node": "^12.7.2",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "16.9.0",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.6.2"
+  }
+}

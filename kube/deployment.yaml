@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: mynamespace
+  name: nextjs-k8s-strategy 
+  labels:
+    app: app
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      name: http
+      nodePort: 30080
+  selector:
+    app: app
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: mynamespace
+  name: nextjs-k8s-strategy 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: myapp-front
+          image: hiro08/nextjs-k8s-strategy:latest
+          ports:
+            - containerPort: 3000
